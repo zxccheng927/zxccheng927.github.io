@@ -52,12 +52,12 @@ tagline: cxz's blog
 # used by seo meta and the atom feed / 网站描述
 # 这段描述会被搜索引擎（SEO）和 RSS 订阅使用。
 description: >-
-  A minimal, responsive and feature-rich Jekyll theme for writing.
+  这里是cxz的个人博客，记录学习、思考与生活。
 
 # Fill in the protocol & hostname for your site. / 填写您网站的完整 URL
 # E.g. 'https://username.github.io', note that it does not end with a '/'.
 # **极其重要**：请务必修改为您自己的 GitHub Pages 地址，例如 'https://zxccheng927.github.io'，末尾不要带斜杠 '/'。
-url: "zxccheng927.github.io" # 请修改为您的网站域名
+url: "http://zxccheng927.github.io" # 请修改为您的网站域名
 
 # GitHub information / GitHub 信息
 github:
