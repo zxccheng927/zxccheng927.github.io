@@ -1,73 +1,104 @@
+# 工作流的名称，会显示在 GitHub Actions 的界面上
 name: "Build and Deploy"
+
+# `on` 关键字定义了触发这个工作流的事件
 on:
+  # 当有代码推送到指定分支时触发
   push:
     branches:
+      # 监听 main 或 master 分支的推送
       - main
       - master
+    # 但是，如果推送只修改了以下文件，则不触发工作流，以节省资源
     paths-ignore:
       - .gitignore
       - README.md
       - LICENSE
 
-  # Allows you to run this workflow manually from the Actions tab
+  # `workflow_dispatch` 允许您在 GitHub Actions 的标签页中手动触发这个工作流
   workflow_dispatch:
 
+# `permissions` 定义了工作流运行时 GITHUB_TOKEN 的权限
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: read # 允许读取仓库内容
+  pages: write # 允许写入 GitHub Pages 的部署产物
+  id-token: write # 允许请求 OpenID Connect (OIDC) ID 令牌
 
-# Allow one concurrent deployment
+# `concurrency` 设置并发控制，确保同一时间只有一个部署在进行
 concurrency:
-  group: "pages"
-  cancel-in-progress: true
+  group: "pages" # 将所有 Pages 的部署任务放在同一个组里
+  cancel-in-progress: true # 如果有新的部署任务开始，则自动取消正在进行中的旧任务
 
+# `jobs` 定义了工作流中需要执行的一系列任务
 jobs:
+  # 第一个任务的 ID 是 'build'，负责构建和测试网站
   build:
+    # `runs-on` 指定了运行这个任务的虚拟服务器环境，这里使用最新的 Ubuntu 系统
     runs-on: ubuntu-latest
 
+    # `steps` 定义了 'build' 任务中需要按顺序执行的步骤
     steps:
+      # 第 1 步：检出代码
       - name: Checkout
+        # `uses` 指定使用一个预先构建好的 action，这里是官方的检出代码 action
         uses: actions/checkout@v4
+        # `with` 是传递给 action 的参数
         with:
-          fetch-depth: 0
-          # submodules: true
+          fetch-depth: 0 # 获取所有的提交历史，对于某些功能是必需的
+          # submodules: true # 如果您使用了子模块（比如 Chirpy Starter 的 assets），需要取消这一行的注释
           # If using the 'assets' git submodule from Chirpy Starter, uncomment above
           # (See: https://github.com/cotes2020/chirpy-starter/tree/main/assets)
 
+      # 第 2 步：设置 GitHub Pages
       - name: Setup Pages
+        # `id` 为这个步骤指定一个唯一的 ID，方便后续步骤引用它的输出
         id: pages
         uses: actions/configure-pages@v4
 
+      # 第 3 步：设置 Ruby 环境
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.3
-          bundler-cache: true
+          ruby-version: 3.3 # 指定使用的 Ruby 版本
+          bundler-cache: true # 缓存 Gem 依赖，以加快后续构建速度
 
+      # 第 4 步：构建网站
       - name: Build site
+        # `run` 指定要执行的 shell 命令
+        # 使用 jekyll build 命令，并将网站构建到 GitHub Pages 指定的输出目录中
         run: bundle exec jekyll b -d "_site${{ steps.pages.outputs.base_path }}"
+        # `env` 设置环境变量
         env:
-          JEKYLL_ENV: "production"
+          JEKYLL_ENV: "production" # 告诉 Jekyll 以生产环境模式构建，会进行一些优化
 
+      # 第 5 步：测试网站
       - name: Test site
+        # `run: |` 表示这是一个多行 shell 命令
         run: |
           bundle exec htmlproofer _site \
-            \-\-disable-external \
-            \-\-ignore-urls "/^http:\/\/127.0.0.1/,/^http:\/\/0.0.0.0/,/^http:\/\/localhost/"
+            --disable-external \
+            --ignore-urls "/^http:\/\/127.0.0.1/,/^http:\/\/0.0.0.0/,/^http:\/\/localhost/" \
+            --url-swap "https://zxccheng927.github.io:" #【关键修改】告诉 htmlproofer 在检查时，将您的线上域名视作网站根目录，以修复链接检查失败的问题
 
+      # 第 6 步：上传网站构建产物
       - name: Upload site artifact
         uses: actions/upload-pages-artifact@v3
         with:
+          # `path` 指定要上传的文件夹，也就是我们构建好的网站
           path: "_site${{ steps.pages.outputs.base_path }}"
 
+  # 第二个任务的 ID 是 'deploy'，负责部署网站
   deploy:
+    # `environment` 定义了部署的环境
     environment:
       name: github-pages
+      # `url` 设置部署后网站的最终地址，会显示在 GitHub 的部署摘要中
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+    # `needs: build` 表示这个 'deploy' 任务必须在 'build' 任务成功完成后才能开始
     needs: build
     steps:
+      # 第 1 步：部署到 GitHub Pages
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
