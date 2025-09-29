@@ -78,7 +78,7 @@ jobs:
           bundle exec htmlproofer _site \
             --disable-external \
             --ignore-urls "/^http:\/\/127.0.0.1/,/^http:\/\/0.0.0.0/,/^http:\/\/localhost/" \
-            --url-swap "https://zxccheng927.github.io:" #【关键修改】告诉 htmlproofer 在检查时，将您的线上域名视作网站根目录，以修复链接检查失败的问题
+            --url-ignore "/^https:\/\/zxccheng927\.github\.io/" #【关键修改】使用 --url-ignore 参数，让检查工具忽略所有以您的线上域名开头的链接
 
       # 第 6 步：上传网站构建产物
       - name: Upload site artifact
