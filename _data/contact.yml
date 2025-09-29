@@ -1,40 +1,52 @@
-#  The contact options.
+# The contact options.
+#
+# 此文件定义了显示在侧边栏底部的社交联系图标。
+# 这是一个 YAML 列表，列表中的每一项都代表一个图标。
+# 每一项包含以下几个关键字段：
+#
+# - type:  一个唯一的标识符，用于主题内部逻辑判断 (例如 github, twitter)。
+# - icon:  图标的样式类名，图标库来自 Font Awesome (https://fontawesome.com/)。
+# - url:   自定义链接地址。对于非内置的类型，需要手动填写完整的 URL。
+# - noblank: (可选) 如果设置为 true，链接将在当前标签页打开，而不是新标签页。默认在新标签页打开。
+#
 
-- type: github
-  icon: "fab fa-github"
+- type: github # 类型：GitHub
+  icon: "fab fa-github" # 图标：使用了 Font Awesome 的 GitHub 品牌图标。
 
-- type: twitter
-  icon: "fa-brands fa-x-twitter"
+- type: twitter # 类型：Twitter (X)
+  icon: "fa-brands fa-x-twitter" # 图标：使用了 Font Awesome 的 X 品牌图标。
 
-- type: email
-  icon: "fas fa-envelope"
-  noblank: true # open link in current tab
+- type: email # 类型：电子邮件
+  icon: "fas fa-envelope" # 图标：信封图标。
+  noblank: true # 在当前标签页打开邮件客户端 (mailto: 链接的推荐行为)。
 
-- type: rss
-  icon: "fas fa-rss"
-  noblank: true
+- type: rss # 类型：RSS 订阅
+  icon: "fas fa-rss" # 图标：RSS 图标。
+  noblank: true # 在当前标签页打开 RSS 订阅链接。
+
 # Uncomment and complete the url below to enable more contact options
+# 取消下面的注释并填写 URL，可以启用更多的联系方式选项。
 #
 # - type: mastodon
-#   icon: 'fab fa-mastodon'   # icons powered by <https://fontawesome.com/>
-#   url:  ''                  # Fill with your Mastodon account page, rel="me" will be applied for verification
+#   icon: 'fab fa-mastodon'   # 图标库由 <https://fontawesome.com/> 提供
+#   url:  ''                  # 填入你的 Mastodon 账户主页，rel="me" 会被自动应用以供验证。
 #
 # - type: linkedin
-#   icon: 'fab fa-linkedin'   # icons powered by <https://fontawesome.com/>
-#   url:  ''                  # Fill with your Linkedin homepage
+#   icon: 'fab fa-linkedin'   # 图标库由 <https://fontawesome.com/> 提供
+#   url:  ''                  # 填入你的领英(LinkedIn)主页。
 #
 # - type: stack-overflow
 #   icon: 'fab fa-stack-overflow'
-#   url:  ''                  # Fill with your stackoverflow homepage
+#   url:  ''                  # 填入你的 Stack Overflow 主页。
 #
 # - type: bluesky
 #   icon: 'fa-brands fa-bluesky'
-#   url: ''                   # Fill with your Bluesky profile link
+#   url: ''                   # 填入你的 Bluesky 个人资料链接。
 #
 # - type: reddit
 #   icon: 'fa-brands fa-reddit'
-#   url: ''                   # Fill with your Reddit profile link
+#   url: ''                   # 填入你的 Reddit 个人资料链接。
 #
 # - type: threads
 #   icon: 'fa-brands fa-threads'
-#   url: ''                   # Fill with your Threads profile link
+#   url: ''                   # 填入你的 Threads 个人资料链接。

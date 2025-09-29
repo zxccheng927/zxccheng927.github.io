@@ -1,32 +1,48 @@
-#  Sharing options at the bottom of the post.
-#  Icons from <https://fontawesome.com/>
+# Sharing options at the bottom of the post.
+# / 定义了文章底部可用的分享选项。
+# Icons from <https://fontawesome.com/>
+# / 图标库来自 Font Awesome 网站。
 
 platforms:
+  # 这是一个平台列表，列表中的每一项都代表一个分享按钮。
+  # 每一项包含以下几个关键字段：
+  #
+  # - type: 平台的名称，会显示在按钮的提示文字中。
+  # - icon: 图标的样式类名。
+  # - link: 分享链接的模板。主题会自动替换其中的 TITLE 和 URL。
+
   - type: Twitter
     icon: "fa-brands fa-square-x-twitter"
+    # Twitter (X) 的分享链接格式
     link: "https://twitter.com/intent/tweet?text=TITLE&url=URL"
 
   - type: Facebook
     icon: "fab fa-facebook-square"
+    # Facebook 的分享链接格式
     link: "https://www.facebook.com/sharer/sharer.php?title=TITLE&u=URL"
 
   - type: Telegram
     icon: "fab fa-telegram"
+    # Telegram 的分享链接格式
     link: "https://t.me/share/url?url=URL&text=TITLE"
 
   # Uncomment below if you need to.
+  # / 如果需要，可以取消下面的注释来启用更多平台。
   #
   # - type: Linkedin
   #   icon: "fab fa-linkedin"
+  #   # 领英 (LinkedIn) 的分享链接格式
   #   link: "https://www.linkedin.com/feed/?shareActive=true&shareUrl=URL"
   #
   # - type: Weibo
   #   icon: "fab fa-weibo"
+  #   # 新浪微博的分享链接格式
   #   link: "https://service.weibo.com/share/share.php?title=TITLE&url=URL"
   #
   # - type: Mastodon
   #   icon: "fa-brands fa-mastodon"
   #   # See: https://github.com/justinribeiro/share-to-mastodon#properties
+  #   # Mastodon 是一个去中心化的社交网络，所以需要提供一个实例列表供用户选择。
   #   instances:
   #     - label: mastodon.social
   #       link: "https://mastodon.social/"

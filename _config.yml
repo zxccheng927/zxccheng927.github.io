@@ -1,83 +1,135 @@
-# The Site Configuration
+# -----------------------------------------------------------------------------
+# ▼ Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely edit after that. If you find
+# yourself editing this file very often, consider using Jekyll's data files
+# feature for the data you need to update frequently.
+#
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
+#
+# If you need help with YAML syntax, here are some quick references for you:
+# https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
+# https://learnxinyminutes.com/docs/yaml/
+# -----------------------------------------------------------------------------
 
-# Import the theme
+# #############################################################################
+# ▼ Site Core Settings
+# #############################################################################
+
+# Import the theme / 导入主题
+# 这里指定了您网站使用的主题是 'jekyll-theme-chirpy'。
 theme: jekyll-theme-chirpy
 
-# The language of the webpage › http://www.lingoes.net/en/translator/langcode.htm
-# If it has the same name as one of the files in folder `_data/locales`, the layout language will also be changed,
-# otherwise, the layout language will use the default value of 'en'.
-lang: en
+# The language of the webpage / 网站语言设置
+# lang: en › http://www.lingoes.net/en/translator/langcode.htm
+# 如果语言代码与 `_data/locales` 文件夹中的文件名相同，布局语言也会相应改变。
+# 否则，布局语言将使用默认的 'en' (英语)。您可以设置为 'zh-CN' 来使用简体中文。
+lang: zh-CN
 
-# Change to your timezone › https://kevinnovak.github.io/Time-Zone-Picker
-timezone:
+# Change to your timezone / 修改为您的时区
+# › https://kevinnovak.github.io/Time-Zone-Picker
+# 例如，中国时区可以设置为 'Asia/Shanghai'。
+timezone: Asia/Shanghai
 
-# jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
+# #############################################################################
+# ▼ Jekyll SEO Tag Settings
+# #############################################################################
+
+# jekyll-seo-tag settings / Jekyll SEO 插件的相关设置
+# › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: Chirpy # the main title
+# The main title / 网站主标题
+# 会显示在浏览器标签页上。
+title: 寻竹
 
-tagline: A text-focused Jekyll theme # it will display as the subtitle
+# A text-focused Jekyll theme / 网站副标题
+# 会显示在主标题下方。
+tagline: cxz's blog
 
-description: >- # used by seo meta and the atom feed
-  A minimal, responsive and feature-rich Jekyll theme for technical writing.
+# used by seo meta and the atom feed / 网站描述
+# 这段描述会被搜索引擎（SEO）和 RSS 订阅使用。
+description: >-
+  A minimal, responsive and feature-rich Jekyll theme for writing.
 
-# Fill in the protocol & hostname for your site.
+# Fill in the protocol & hostname for your site. / 填写您网站的完整 URL
 # E.g. 'https://username.github.io', note that it does not end with a '/'.
-url: ""
+# **极其重要**：请务必修改为您自己的 GitHub Pages 地址，例如 'https://zxccheng927.github.io'，末尾不要带斜杠 '/'。
+url: "zxccheng927.github.io" # 请修改为您的网站域名
 
+# GitHub information / GitHub 信息
 github:
-  username: github_username # change to your GitHub username
+  username: zxccheng927 # 请修改为您的 GitHub 用户名
 
+# Twitter information / Twitter 信息
 twitter:
-  username: twitter_username # change to your Twitter username
+  username: phanhongha01745 # 请修改为您的 Twitter 用户名
 
+# Social links / 社交媒体链接
 social:
-  # Change to your full name.
+  # Change to your full name. / 修改为您的全名
   # It will be displayed as the default author of the posts and the copyright owner in the Footer
-  name: your_full_name
-  email: example@domain.com # change to your email address
+  # 会作为文章默认作者和页脚的版权所有者显示。
+  name: Xunzhu Cheng # 请修改为您的全名
+  email: xzcheng745@gmail.com # 请修改为您的邮箱地址
   links:
-    # The first element serves as the copyright owner's link
-    - https://twitter.com/username # change to your Twitter homepage
-    - https://github.com/username # change to your GitHub homepage
-    # Uncomment below to add more social links
+    # The first element serves as the copyright owner's link / 第一个链接会作为版权所有者的链接
+    - https://x.com/phanhongha01745 # 请修改为您的 Twitter 主页
+    - https://github.com/zxccheng927 # 请修改为您的 GitHub 主页
+    # Uncomment below to add more social links / 取消下面的注释来添加更多社交链接
     # - https://www.facebook.com/username
     # - https://www.linkedin.com/in/username
 
-# Site Verification Settings
+# Site Verification Settings / 网站所有权验证设置
+# 用于向各大搜索引擎证明您是这个网站的所有者。
 webmaster_verifications:
-  google: # fill in your Google verification code
-  bing: # fill in your Bing verification code
-  alexa: # fill in your Alexa verification code
-  yandex: # fill in your Yandex verification code
-  baidu: # fill in your Baidu verification code
-  facebook: # fill in your Facebook verification code
+  google: # 填入您的 Google 验证码
+  bing: # 填入您的 Bing 验证码
+  alexa: # 填入您的 Alexa 验证码
+  yandex: # 填入您的 Yandex 验证码
+  baidu: # 填入您的 百度 验证码
+  facebook: # 填入您的 Facebook 验证码
 
 # ↑ --------------------------
 # The end of `jekyll-seo-tag` settings
 
-# Web Analytics Settings
+# #############################################################################
+# ▼ Web Analytics
+# #############################################################################
+
+# Web Analytics Settings / 网站分析工具设置
+# 用于追踪网站流量。
 analytics:
   google:
-    id: # fill in your Google Analytics ID
+    id: # 填入您的 Google Analytics ID
   goatcounter:
-    id: # fill in your GoatCounter ID
+    id: # 填入您的 GoatCounter ID
   umami:
-    id: # fill in your Umami ID
-    domain: # fill in your Umami domain
+    id: # 填入您的 Umami ID
+    domain: # 填入您的 Umami 域名
   matomo:
-    id: # fill in your Matomo ID
-    domain: # fill in your Matomo domain
+    id: # 填入您的 Matomo ID
+    domain: # 填入您的 Matomo 域名
   cloudflare:
-    id: # fill in your Cloudflare Web Analytics token
+    id: # 填入您的 Cloudflare Web Analytics token
   fathom:
-    id: # fill in your Fathom Site ID
+    id: # 填入您的 Fathom Site ID
 
-# Page views settings
+# #############################################################################
+# ▼ Page Views
+# #############################################################################
+
+# Page views settings / 页面浏览量设置
 pageviews:
-  provider: # now only supports 'goatcounter'
+  provider: goatcounter # 目前只支持 'goatcounter'
 
-# Prefer color scheme setting.
+# #############################################################################
+# ▼ Appearance
+# #############################################################################
+
+# Prefer color scheme setting. / 颜色主题偏好设置
 #
 # Note: Keep empty will follow the system prefer color by default,
 # and there will be a toggle to switch the theme between dark and light
@@ -88,38 +140,50 @@ pageviews:
 #     light — Use the light color scheme
 #     dark — Use the dark color scheme
 #
+# 备注：保持为空会默认跟随系统设置，并在侧边栏左下角提供一个切换按钮。
+# 可选值： 'light' (强制日间模式) 或 'dark' (强制夜间模式)。
 theme_mode: # [light | dark]
 
-# The CDN endpoint for media resources.
+# The CDN endpoint for media resources. / 媒体资源的 CDN 端点
 # Notice that once it is assigned, the CDN url
 # will be added to all media resources (site avatar, posts' images, audio and video files) paths starting with '/'
 #
 # e.g. 'https://cdn.com'
+# 这是一个高级选项，用于通过 CDN 加速图片等资源的加载。新手可以留空。
 cdn:
 
-# the avatar on sidebar, support local or CORS resources
+# the avatar on sidebar, support local or CORS resources / 侧边栏头像
+# 可以是本地路径 (如 /assets/img/avatar.jpg) 或一个网络图片链接。
 avatar:
 
 # The URL of the site-wide social preview image used in SEO `og:image` meta tag.
 # It can be overridden by a customized `page.image` in front matter.
+# 网站在社交媒体上分享时显示的默认预览图。
 social_preview_image: # string, local or CORS resources
 
-# boolean type, the global switch for TOC in posts.
+# #############################################################################
+# ▼ Posts
+# #############################################################################
+
+# boolean type, the global switch for TOC in posts. / 文章目录 (TOC) 的全局开关
 toc: true
 
+# Comment system settings / 评论系统设置
 comments:
   # Global switch for the post-comment system. Keeping it empty means disabled.
-  provider: # [disqus | utterances | giscus]
+  # 评论系统的全局开关，留空表示禁用。
+  # 可选值: 'disqus', 'utterances', 'giscus' (三选一)
+  provider:
   # The provider options are as follows:
   disqus:
-    shortname: # fill with the Disqus shortname. › https://help.disqus.com/en/articles/1717111-what-s-a-shortname
-  # utterances settings › https://utteranc.es/
+    shortname: # 填入 Disqus 的 shortname › https://help.disqus.com/en/articles/1717111-what-s-a-shortname
+  # utterances settings › https://utteranc.es/ (基于 GitHub Issues 的评论系统)
   utterances:
-    repo: # <gh-username>/<repo>
-    issue_term: # < url | pathname | title | ...>
-  # Giscus options › https://giscus.app
+    repo: # 填入您的仓库名，格式为 <GitHub 用户名>/<仓库名>
+    issue_term: # 推荐使用 'pathname'
+  # Giscus options › https://giscus.app (基于 GitHub Discussions 的评论系统)
   giscus:
-    repo: # <gh-username>/<repo>
+    repo: # 填入您的仓库名，格式为 <GitHub 用户名>/<仓库名>
     repo_id:
     category:
     category_id:
@@ -129,7 +193,12 @@ comments:
     lang: # optional, default to the value of `site.lang`
     reactions_enabled: # optional, default to the value of `1`
 
+# #############################################################################
+# ▼ Customization
+# #############################################################################
+
 # Self-hosted static assets, optional › https://github.com/cotes2020/chirpy-static-assets
+# 自托管静态资源，高级选项，新手可以忽略。
 assets:
   self_host:
     enabled: # boolean, keep empty means false
@@ -137,22 +206,37 @@ assets:
     # only works if `assets.self_host.enabled` is 'true'
     env: # [development | production]
 
+# PWA feature settings / PWA (渐进式网页应用) 功能设置
 pwa:
-  enabled: true # The option for PWA feature (installable)
+  enabled: true # The option for PWA feature (installable) / 开启后网站可以被“安装”到桌面
   cache:
-    enabled: true # The option for PWA offline cache
+    enabled: true # The option for PWA offline cache / 开启离线缓存
     # Paths defined here will be excluded from the PWA cache.
     # Usually its value is the `baseurl` of another website that
     # shares the same domain name as the current website.
     deny_paths:
       # - "/example"  # URLs match `<SITE_URL>/example/*` will not be cached by the PWA
 
+# #############################################################################
+# ▼ Paginate
+# #############################################################################
+
+# Paginate settings / 分页设置
+# 博客主页每页显示的文章数量。
 paginate: 10
 
-# The base URL of your site
+# #############################################################################
+# ▼ Other Jekyll Settings
+# #############################################################################
+
+# The base URL of your site / 网站的根路径
+# **极其重要**：
+# 如果您的网站是用户站点 (如 zxccheng927.github.io)，请将此值设置为空字符串 ""。
+# 如果您的网站是项目站点 (如 zxccheng927.github.io/my-project)，请将此值设置为 "/my-project"。
 baseurl: ""
 
 # ------------ The following options are not recommended to be modified ------------------
+# ------------ 不建议修改以下选项 ------------------
 
 kramdown:
   footnote_backlink: "&#8617;&#xfe0e;"
