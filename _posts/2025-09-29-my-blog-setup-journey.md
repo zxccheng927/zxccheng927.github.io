@@ -1,7 +1,6 @@
 ---
 title: 测试文章
-date:
-  "{ date:YYYY-MM-DD HH:mm:ss +0800 }":
+date: 2025-09-29
 categories:
   - 信息技术
 tags:
