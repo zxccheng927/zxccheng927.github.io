@@ -154,7 +154,7 @@ cdn:
 
 # the avatar on sidebar, support local or CORS resources / 侧边栏头像
 # 可以是本地路径 (如 /assets/img/avatar.jpg) 或一个网络图片链接。
-avatar:
+avatar: /assets/img/favicons/shijian.png
 
 # The URL of the site-wide social preview image used in SEO `og:image` meta tag.
 # It can be overridden by a customized `page.image` in front matter.
